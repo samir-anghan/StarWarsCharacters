@@ -26,6 +26,7 @@
 		37273BB523862D3600006D6A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB423862D3600006D6A /* Person.swift */; };
 		37273BB723862D9600006D6A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB623862D9600006D6A /* Gender.swift */; };
 		37273BB923862EE900006D6A /* StarWarsApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB823862EE900006D6A /* StarWarsApiResponse.swift */; };
+		37273BBD23863A1B00006D6A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BBC23863A1B00006D6A /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		37273BB423862D3600006D6A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		37273BB623862D9600006D6A /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		37273BB823862EE900006D6A /* StarWarsApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsApiResponse.swift; sourceTree = "<group>"; };
+		37273BBC23863A1B00006D6A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 		37273B9B238610A300006D6A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				37273BBC23863A1B00006D6A /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				37273BAB2386163C00006D6A /* URLParameterEncoder.swift in Sources */,
 				37273BA9238614B800006D6A /* ParameterEncoding.swift in Sources */,
 				37273BA72386134400006D6A /* HTTPTask.swift in Sources */,
+				37273BBD23863A1B00006D6A /* NetworkManager.swift in Sources */,
 				37273BA32386129500006D6A /* EndPointType.swift in Sources */,
 				37273B7B23860BDF00006D6A /* ViewController.swift in Sources */,
 				37273BB723862D9600006D6A /* Gender.swift in Sources */,

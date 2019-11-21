@@ -11,7 +11,7 @@ import Foundation
 struct StarWarsApiResponse {
     let resultsCount: Int
     let nextPageURL: String
-    let previousPageURL: String
+    let previousPageURL: String?
     let persons: [Person]
 }
 
@@ -29,7 +29,7 @@ extension StarWarsApiResponse: Decodable {
         
         resultsCount = try container.decode(Int.self, forKey: .resultsCount)
         nextPageURL = try container.decode(String.self, forKey: .nextPageURL)
-        previousPageURL = try container.decode(String.self, forKey: .previousPageURL)
+        previousPageURL = try container.decodeIfPresent(String.self, forKey: .previousPageURL)
         persons = try container.decode([Person].self, forKey: .persons)
     }
     
