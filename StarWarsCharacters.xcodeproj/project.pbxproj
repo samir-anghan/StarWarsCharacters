@@ -22,6 +22,10 @@
 		37273BAD238616CE00006D6A /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BAC238616CE00006D6A /* JSONParameterEncoder.swift */; };
 		37273BAF2386172600006D6A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BAE2386172600006D6A /* NetworkRouter.swift */; };
 		37273BB12386179C00006D6A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB02386179C00006D6A /* Router.swift */; };
+		37273BB32386281600006D6A /* StarWarsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB22386281600006D6A /* StarWarsAPI.swift */; };
+		37273BB523862D3600006D6A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB423862D3600006D6A /* Person.swift */; };
+		37273BB723862D9600006D6A /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB623862D9600006D6A /* Gender.swift */; };
+		37273BB923862EE900006D6A /* StarWarsApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BB823862EE900006D6A /* StarWarsApiResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		37273BAC238616CE00006D6A /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		37273BAE2386172600006D6A /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		37273BB02386179C00006D6A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		37273BB22386281600006D6A /* StarWarsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsAPI.swift; sourceTree = "<group>"; };
+		37273BB423862D3600006D6A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		37273BB623862D9600006D6A /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		37273BB823862EE900006D6A /* StarWarsApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsApiResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 		37273B9A2386109200006D6A /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
+				37273BB22386281600006D6A /* StarWarsAPI.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -185,6 +194,9 @@
 		37273B9F2386111200006D6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				37273BB423862D3600006D6A /* Person.swift */,
+				37273BB623862D9600006D6A /* Gender.swift */,
+				37273BB823862EE900006D6A /* StarWarsApiResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,9 +322,13 @@
 				37273BA72386134400006D6A /* HTTPTask.swift in Sources */,
 				37273BA32386129500006D6A /* EndPointType.swift in Sources */,
 				37273B7B23860BDF00006D6A /* ViewController.swift in Sources */,
+				37273BB723862D9600006D6A /* Gender.swift in Sources */,
 				37273BAD238616CE00006D6A /* JSONParameterEncoder.swift in Sources */,
+				37273BB923862EE900006D6A /* StarWarsApiResponse.swift in Sources */,
 				37273B7723860BDF00006D6A /* AppDelegate.swift in Sources */,
 				37273BAF2386172600006D6A /* NetworkRouter.swift in Sources */,
+				37273BB32386281600006D6A /* StarWarsAPI.swift in Sources */,
+				37273BB523862D3600006D6A /* Person.swift in Sources */,
 				37273BA52386130400006D6A /* HTTPMethod.swift in Sources */,
 				37273B7923860BDF00006D6A /* SceneDelegate.swift in Sources */,
 			);
