@@ -79,6 +79,12 @@
 		37273B7523860BDF00006D6A /* StarWarsCharacters */ = {
 			isa = PBXGroup;
 			children = (
+				37273B982386100800006D6A /* Networking */,
+				37273BA12386113300006D6A /* Helpers */,
+				37273BA02386111D00006D6A /* Resources */,
+				37273B9F2386111200006D6A /* Models */,
+				37273B9E238610FF00006D6A /* ViewModels */,
+				37273B9D238610F600006D6A /* Views */,
 				37273B7623860BDF00006D6A /* AppDelegate.swift */,
 				37273B7823860BDF00006D6A /* SceneDelegate.swift */,
 				37273B7A23860BDF00006D6A /* ViewController.swift */,
@@ -97,6 +103,80 @@
 				37273B8F23860BE100006D6A /* Info.plist */,
 			);
 			path = StarWarsCharactersTests;
+			sourceTree = "<group>";
+		};
+		37273B982386100800006D6A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				37273B992386108200006D6A /* Encoding */,
+				37273B9A2386109200006D6A /* EndPoint */,
+				37273B9B238610A300006D6A /* Manager */,
+				37273B9C238610AD00006D6A /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		37273B992386108200006D6A /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		37273B9A2386109200006D6A /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		37273B9B238610A300006D6A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		37273B9C238610AD00006D6A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		37273B9D238610F600006D6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37273B9E238610FF00006D6A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		37273B9F2386111200006D6A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37273BA02386111D00006D6A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		37273BA12386113300006D6A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
