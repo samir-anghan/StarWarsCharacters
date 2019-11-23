@@ -8,21 +8,22 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, AlertDisplayer {
 
     @IBOutlet weak var peopleTableView: UITableView!
-    @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    private var viewModel: PersonViewModel?
+    private var viewModel: PersonViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Star Wars People"
-        viewModel = PersonViewModel()
-        viewModel?.delegate = self
-        viewModel?.fetchPeople()
+        indicatorView.startAnimating()
         setupTableView()
+        
+        viewModel = PersonViewModel(delegate: self)
+        viewModel.fetchPersons()
     }
     
 
@@ -35,52 +36,88 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-// MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+    
     private func setupTableView() {
+        peopleTableView.isHidden = true
         peopleTableView.delegate = self
         peopleTableView.dataSource = self
+        peopleTableView.prefetchDataSource = self
         peopleTableView.keyboardDismissMode = .onDrag
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        //performSegue(withIdentifier: "detailViewSegue", sender: viewModel?.dataToDisplay[indexPath.row])
     }
 }
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.dataSource.count ?? 0
+        return viewModel.totalCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personCellIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PeopleTableViewCell.identifier, for: indexPath) as? PeopleTableViewCell else { return UITableViewCell() }
+    
+        if isLoadingCell(for: indexPath) {
+            cell.configure(with: .none)
+        } else {
+            let person = viewModel.person(at: indexPath.row)
+            cell.configure(with: person)
+        }
         
-        guard let vm = viewModel else { return cell }
-        
-        cell.textLabel?.text = vm.dataSource[indexPath.row].name
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        //performSegue(withIdentifier: "detailViewSegue", sender: viewModel?.dataToDisplay[indexPath.row])
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+extension MainViewController: UITableViewDataSourcePrefetching {
+  func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+    if indexPaths.contains(where: isLoadingCell) {
+      viewModel.fetchPersons()
+    }
+  }
+}
+
+
 // MARK: - PersonViewModelDelegate
 extension MainViewController: PersonViewModelDelegate {
-    func loading() {
-        tableViewActivityIndicator.startAnimating()
-    }
+    func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
+       guard let newIndexPathsToReload = newIndexPathsToReload else {
+         indicatorView.stopAnimating()
+         peopleTableView.isHidden = false
+         peopleTableView.reloadData()
+         return
+       }
     
-    func dataReady() {
-        DispatchQueue.main.async {
-            self.peopleTableView.reloadData()
-            self.tableViewActivityIndicator.stopAnimating()
-        }
-    }
+       let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
+       peopleTableView.reloadRows(at: indexPathsToReload, with: .automatic)
+     }
     
-    func errorLoading() {
-        tableViewActivityIndicator.stopAnimating()
-    }
+    func onFetchFailed(with reason: String) {
+       indicatorView.stopAnimating()
+       
+       let title = "Warning"
+       let action = UIAlertAction(title: "OK", style: .default)
+       displayAlert(with: title , message: reason, actions: [action])
+     }
+}
+
+
+
+// MARK: - Helpers
+private extension MainViewController {
+  func isLoadingCell(for indexPath: IndexPath) -> Bool {
+    return indexPath.row >= viewModel.currentCount
+  }
+  
+  func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+    let indexPathsForVisibleRows = peopleTableView.indexPathsForVisibleRows ?? []
+    let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+    return Array(indexPathsIntersection)
+  }
 }

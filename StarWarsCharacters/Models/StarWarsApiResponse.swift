@@ -9,8 +9,8 @@
 import Foundation
 
 struct StarWarsApiResponse {
-    let resultsCount: Int
-    let nextPageURL: String
+    let total: Int
+    let nextPageURL: String?
     let previousPageURL: String?
     let persons: [Person]
 }
@@ -18,7 +18,7 @@ struct StarWarsApiResponse {
 extension StarWarsApiResponse: Decodable {
     
     private enum StarWarsApiResponseCodingKeys: String, CodingKey {
-        case resultsCount = "count"
+        case total = "count"
         case nextPageURL = "next"
         case previousPageURL = "previous"
         case persons = "results"
@@ -27,8 +27,8 @@ extension StarWarsApiResponse: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: StarWarsApiResponseCodingKeys.self)
         
-        resultsCount = try container.decode(Int.self, forKey: .resultsCount)
-        nextPageURL = try container.decode(String.self, forKey: .nextPageURL)
+        total = try container.decode(Int.self, forKey: .total)
+        nextPageURL = try container.decodeIfPresent(String.self, forKey: .nextPageURL)
         previousPageURL = try container.decodeIfPresent(String.self, forKey: .previousPageURL)
         persons = try container.decode([Person].self, forKey: .persons)
     }

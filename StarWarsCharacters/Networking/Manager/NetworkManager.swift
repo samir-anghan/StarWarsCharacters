@@ -36,7 +36,7 @@ struct NetworkManager {
     static let StarWarsAPIKey = ""
     private let router = Router<StarWarsAPI>()
     
-    func getAllPersons(page: Int, completion: @escaping (_ person: [Person]?,_ error: String?)->()) {
+    func getAllPersons(page: Int, completion: @escaping (_ response: StarWarsApiResponse?,_ error: String?)->()) {
         router.request(.allpersons(page: page)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
@@ -55,7 +55,7 @@ struct NetworkManager {
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(StarWarsApiResponse.self, from: responseData)
-                        completion(apiResponse.persons, nil)
+                        completion(apiResponse, nil)
                     } catch {
                         print(error)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

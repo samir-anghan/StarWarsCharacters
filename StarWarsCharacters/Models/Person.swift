@@ -11,7 +11,7 @@ import Foundation
 struct Person {
     let name, height, mass, hairColor: String
     let skinColor, eyeColor, birthYear: String
-    let gender: Gender
+    let gender: String
     let homeworld: String
     let films, species, vehicles, starships: [String]
     let created, edited: String
@@ -38,7 +38,7 @@ extension Person: Decodable {
         skinColor = try container.decode(String.self, forKey: .skinColor)
         eyeColor = try container.decode(String.self, forKey: .eyeColor)
         birthYear = try container.decode(String.self, forKey: .birthYear)
-        gender = try container.decode(Gender.self, forKey: .gender)
+        gender = try container.decode(String.self, forKey: .gender)
         homeworld = try container.decode(String.self, forKey: .homeworld)
         films = try container.decode([String].self, forKey: .films)
         species = try container.decode([String].self, forKey: .species)
