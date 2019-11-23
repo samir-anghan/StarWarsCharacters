@@ -18,7 +18,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             task = session.dataTask(with: request, completionHandler: { data, response, error in
                 completion(data, response, error)
             })
-        }catch {
+        } catch {
             completion(nil, nil, error)
         }
         self.task?.resume()
