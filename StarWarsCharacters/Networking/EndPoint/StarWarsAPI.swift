@@ -9,7 +9,7 @@
 import Foundation
 
 public enum StarWarsAPI {
-    case allpersons
+    case allpersons(page: Int)
 }
 
 extension StarWarsAPI: EndPointType {
@@ -38,8 +38,19 @@ extension StarWarsAPI: EndPointType {
         return .get
     }
     
+    var parameters: [String : Any]? {
+        switch self {
+        case .allpersons(let page):
+            return ["page": page]
+        }
+    }
+    
     var task: HTTPTask {
-        return .request
+        switch self {
+        case .allpersons:
+            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters)
+        }
+        
     }
     
     var headers: HTTPHeaders? {

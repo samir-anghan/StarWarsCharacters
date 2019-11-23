@@ -30,12 +30,14 @@ enum Result<String>{
 }
 
 struct NetworkManager {
+    static let shared = NetworkManager()
+    
     static let environment : NetworkEnvironment = .production
     static let StarWarsAPIKey = ""
-    let router = Router<StarWarsAPI>()
+    private let router = Router<StarWarsAPI>()
     
-    func getAllPersons(completion: @escaping (_ person: [Person]?,_ error: String?)->()) {
-        router.request(.allpersons) { data, response, error in
+    func getAllPersons(page: Int, completion: @escaping (_ person: [Person]?,_ error: String?)->()) {
+        router.request(.allpersons(page: page)) { data, response, error in
             if error != nil {
                 completion(nil, "Please check your network connection.")
             }
