@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController, AlertDisplayer {
-
+    
     @IBOutlet weak var peopleTableView: UITableView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
@@ -17,7 +17,7 @@ class MainViewController: UIViewController, AlertDisplayer {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationItem.title = "Star Wars People"
         indicatorView.startAnimating()
         setupTableView()
@@ -26,16 +26,14 @@ class MainViewController: UIViewController, AlertDisplayer {
         viewModel.fetchPersons()
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? PersonDetailTableViewController {
+            guard let person = sender as? Person else { return }
+            destination.viewModel = PersonDetailViewModel(person: person)
+//            destination.hidesBottomBarWhenPushed = true
+        }
     }
-    */
     
     private func setupTableView() {
         peopleTableView.isHidden = true
@@ -53,8 +51,8 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PeopleTableViewCell.identifier, for: indexPath) as? PeopleTableViewCell else { return UITableViewCell() }
-    
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PersonTableViewCell.identifier, for: indexPath) as? PersonTableViewCell else { return UITableViewCell() }
+        
         if isLoadingCell(for: indexPath) {
             cell.configure(with: .none)
         } else {
@@ -70,54 +68,51 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //performSegue(withIdentifier: "detailViewSegue", sender: viewModel?.dataToDisplay[indexPath.row])
+        performSegue(withIdentifier: "personDetailViewSegue", sender: viewModel.person(at: indexPath.row))
     }
 }
 
 // MARK: - UITableViewDataSourcePrefetching
 extension MainViewController: UITableViewDataSourcePrefetching {
-  func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-    if indexPaths.contains(where: isLoadingCell) {
-      viewModel.fetchPersons()
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: isLoadingCell) {
+            viewModel.fetchPersons()
+        }
     }
-  }
 }
-
 
 // MARK: - PersonViewModelDelegate
 extension MainViewController: PersonViewModelDelegate {
     func onFetchCompleted(with newIndexPathsToReload: [IndexPath]?) {
-       guard let newIndexPathsToReload = newIndexPathsToReload else {
-         indicatorView.stopAnimating()
-         peopleTableView.isHidden = false
-         peopleTableView.reloadData()
-         return
-       }
-    
-       let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
-       peopleTableView.reloadRows(at: indexPathsToReload, with: .automatic)
-     }
+        guard let newIndexPathsToReload = newIndexPathsToReload else {
+            indicatorView.stopAnimating()
+            peopleTableView.isHidden = false
+            peopleTableView.reloadData()
+            return
+        }
+        
+        let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
+        peopleTableView.reloadRows(at: indexPathsToReload, with: .automatic)
+    }
     
     func onFetchFailed(with reason: String) {
-       indicatorView.stopAnimating()
-       
-       let title = "Warning"
-       let action = UIAlertAction(title: "OK", style: .default)
-       displayAlert(with: title , message: reason, actions: [action])
-     }
+        indicatorView.stopAnimating()
+        
+        let title = "Warning"
+        let action = UIAlertAction(title: "OK", style: .default)
+        displayAlert(with: title , message: reason, actions: [action])
+    }
 }
-
-
 
 // MARK: - Helpers
 private extension MainViewController {
-  func isLoadingCell(for indexPath: IndexPath) -> Bool {
-    return indexPath.row >= viewModel.currentCount
-  }
-  
-  func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
-    let indexPathsForVisibleRows = peopleTableView.indexPathsForVisibleRows ?? []
-    let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
-    return Array(indexPathsIntersection)
-  }
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= viewModel.currentCount
+    }
+    
+    func visibleIndexPathsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+        let indexPathsForVisibleRows = peopleTableView.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPaths)
+        return Array(indexPathsIntersection)
+    }
 }

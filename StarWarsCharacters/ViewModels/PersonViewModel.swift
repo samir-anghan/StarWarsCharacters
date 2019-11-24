@@ -23,19 +23,19 @@ class PersonViewModel {
     private var isFetchInProgress = false
     
     init(delegate: PersonViewModelDelegate) {
-      self.delegate = delegate
+        self.delegate = delegate
     }
     
     var totalCount: Int {
-      return total
+        return total
     }
     
     var currentCount: Int {
-      return persons.count
+        return persons.count
     }
     
     func person(at index: Int) -> Person {
-      return persons[index]
+        return persons[index]
     }
     
     func fetchPersons() {
@@ -72,8 +72,8 @@ class PersonViewModel {
     }
     
     private func calculateIndexPathsToReload(from newPersons: [Person]) -> [IndexPath] {
-      let startIndex = newPersons.count - newPersons.count
-      let endIndex = startIndex + newPersons.count
-      return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
+        let startIndex = persons.count - newPersons.count
+        let endIndex = startIndex + newPersons.count
+        return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }

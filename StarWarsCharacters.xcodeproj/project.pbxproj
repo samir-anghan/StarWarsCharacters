@@ -28,7 +28,9 @@
 		37273BBD23863A1B00006D6A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273BBC23863A1B00006D6A /* NetworkManager.swift */; };
 		3781C2E523899B71004FC855 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2E423899B71004FC855 /* MainViewController.swift */; };
 		3781C2E92389BA1E004FC855 /* AlertDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2E82389BA1E004FC855 /* AlertDisplayer.swift */; };
-		3781C2EB2389DD3C004FC855 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2EA2389DD3C004FC855 /* PeopleTableViewCell.swift */; };
+		3781C2EF2389EEC9004FC855 /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2EE2389EEC9004FC855 /* PeopleTableViewCell.swift */; };
+		3781C2F12389EEFD004FC855 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2F02389EEFD004FC855 /* PersonDetailViewModel.swift */; };
+		3781C2F32389FDC7004FC855 /* PersonDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C2F22389FDC7004FC855 /* PersonDetailTableViewController.swift */; };
 		378F7DC223898E1D00D37ACC /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F7DC123898E1D00D37ACC /* PersonViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +70,9 @@
 		37273BBC23863A1B00006D6A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3781C2E423899B71004FC855 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3781C2E82389BA1E004FC855 /* AlertDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayer.swift; sourceTree = "<group>"; };
-		3781C2EA2389DD3C004FC855 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		3781C2EE2389EEC9004FC855 /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
+		3781C2F02389EEFD004FC855 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		3781C2F22389FDC7004FC855 /* PersonDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailTableViewController.swift; sourceTree = "<group>"; };
 		378F7DC123898E1D00D37ACC /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				37273B7C23860BDF00006D6A /* Main.storyboard */,
-				3781C2EA2389DD3C004FC855 /* PeopleTableViewCell.swift */,
+				3781C2EE2389EEC9004FC855 /* PeopleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				378F7DC123898E1D00D37ACC /* PersonViewModel.swift */,
+				3781C2F02389EEFD004FC855 /* PersonDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				3781C2E423899B71004FC855 /* MainViewController.swift */,
+				3781C2F22389FDC7004FC855 /* PersonDetailTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3781C2EF2389EEC9004FC855 /* PeopleTableViewCell.swift in Sources */,
+				3781C2F12389EEFD004FC855 /* PersonDetailViewModel.swift in Sources */,
 				37273BB12386179C00006D6A /* Router.swift in Sources */,
 				37273BAB2386163C00006D6A /* URLParameterEncoder.swift in Sources */,
 				37273BA9238614B800006D6A /* ParameterEncoding.swift in Sources */,
@@ -343,10 +351,10 @@
 				37273BA72386134400006D6A /* HTTPTask.swift in Sources */,
 				37273BBD23863A1B00006D6A /* NetworkManager.swift in Sources */,
 				3781C2E92389BA1E004FC855 /* AlertDisplayer.swift in Sources */,
-				3781C2EB2389DD3C004FC855 /* PeopleTableViewCell.swift in Sources */,
 				37273BA32386129500006D6A /* EndPointType.swift in Sources */,
 				37273BB723862D9600006D6A /* Gender.swift in Sources */,
 				37273BAD238616CE00006D6A /* JSONParameterEncoder.swift in Sources */,
+				3781C2F32389FDC7004FC855 /* PersonDetailTableViewController.swift in Sources */,
 				37273BB923862EE900006D6A /* StarWarsApiResponse.swift in Sources */,
 				37273B7723860BDF00006D6A /* AppDelegate.swift in Sources */,
 				37273BAF2386172600006D6A /* NetworkRouter.swift in Sources */,

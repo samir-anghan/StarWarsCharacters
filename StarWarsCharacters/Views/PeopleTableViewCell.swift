@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PeopleTableViewCell: UITableViewCell {
+class PersonTableViewCell: UITableViewCell {
     static let identifier = "personCellIdentifier"
 
     @IBOutlet weak var personNameLabel: UILabel!
