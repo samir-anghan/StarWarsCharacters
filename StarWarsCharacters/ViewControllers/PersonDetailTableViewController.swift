@@ -9,7 +9,8 @@
 import UIKit
 
 class PersonDetailTableViewController: UITableViewController {
-
+    
+    @IBOutlet var detailTableView: UITableView!
     @IBOutlet weak var yearOfBirthLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
@@ -23,22 +24,13 @@ class PersonDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        configureData()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    private func configureData() {
+        detailTableView.register(UINib(nibName: FilmDetailsTableViewCell.nib, bundle: nil), forCellReuseIdentifier: FilmDetailsTableViewCell.identifier)
+        
         guard let vm = viewModel else { return }
         
         let person = vm.person
         navigationItem.title = person.name
-
+        
         yearOfBirthLabel.text = person.birthYear
         genderLabel.text = person.gender
         heightLabel.text = person.height
@@ -47,60 +39,52 @@ class PersonDetailTableViewController: UITableViewController {
         hairColorLabel.text = person.hairColor
         eyeColorLabel.text = person.eyeColor
     }
-
-    /*
+    
+    // MARK: - numberOfSections
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    // MARK: - numberOfRowsInSection
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2 {
+            return viewModel?.filmCount ?? 0
+        }
+        return super.tableView(tableView, numberOfRowsInSection: section)
+    }
+    
+    // MARK: - cellForRowAt
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 2 {
+            guard let cell = detailTableView.dequeueReusableCell(withIdentifier: FilmDetailsTableViewCell.identifier) as? FilmDetailsTableViewCell, let vm = viewModel else { return UITableViewCell() }
+            
+            vm.isFetchInProcess ? cell.configure(with: .none) : cell.configure(with: viewModel?.film(at: indexPath.row))
+            return cell
+        }
+        return super.tableView(tableView, cellForRowAt: indexPath)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    // MARK: - indentationLevelForRowAt
+    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+        if indexPath.section == 2 {
+            let newIndexPath = IndexPath(row: 0, section: indexPath.section)
+            return super.tableView(tableView, indentationLevelForRowAt: newIndexPath)
+        }
+        return super.tableView(tableView, indentationLevelForRowAt: indexPath)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: - heightForRowAt
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 {
+            return FilmDetailsTableViewCell.cellHeight
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+// MARK: - PersonDetailViewModelDelegate
+extension PersonDetailTableViewController: PersonDetailViewModelDelegate {
+    func onFetchCompleted() {
+        detailTableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

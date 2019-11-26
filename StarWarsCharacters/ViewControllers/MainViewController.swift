@@ -30,8 +30,7 @@ class MainViewController: UIViewController, AlertDisplayer {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PersonDetailTableViewController {
             guard let person = sender as? Person else { return }
-            destination.viewModel = PersonDetailViewModel(person: person)
-//            destination.hidesBottomBarWhenPushed = true
+            destination.viewModel = PersonDetailViewModel(person: person, delegate: destination)
         }
     }
     

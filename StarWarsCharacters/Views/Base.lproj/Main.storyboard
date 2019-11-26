@@ -324,94 +324,12 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Films" id="0IP-Hu-UT0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="Jvk-lp-KqC">
-                                        <rect key="frame" x="0.0" y="481" width="414" height="53"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="59" id="cSp-Xa-fKR">
+                                        <rect key="frame" x="0.0" y="481" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jvk-lp-KqC" id="GSD-of-ZPa">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cSp-Xa-fKR" id="EYJ-EW-JqP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4P-CB-bjb">
-                                                    <rect key="frame" x="20" y="5" width="374" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R3-Captain Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNx-16-cc0">
-                                                    <rect key="frame" x="20" y="27" width="374" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="o4P-CB-bjb" secondAttribute="trailing" constant="20" id="n3b-Gm-BCp"/>
-                                                <constraint firstItem="mNx-16-cc0" firstAttribute="trailing" secondItem="o4P-CB-bjb" secondAttribute="trailing" id="sgK-h7-Miz"/>
-                                                <constraint firstItem="mNx-16-cc0" firstAttribute="top" secondItem="o4P-CB-bjb" secondAttribute="bottom" constant="4" id="tsb-mY-psy"/>
-                                                <constraint firstItem="o4P-CB-bjb" firstAttribute="leading" secondItem="GSD-of-ZPa" secondAttribute="leading" constant="20" id="vek-Yd-shl"/>
-                                                <constraint firstItem="mNx-16-cc0" firstAttribute="leading" secondItem="o4P-CB-bjb" secondAttribute="leading" id="vy9-6j-JVG"/>
-                                                <constraint firstItem="o4P-CB-bjb" firstAttribute="top" secondItem="GSD-of-ZPa" secondAttribute="top" constant="5" id="yI0-T1-seT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="Irw-kj-Voo">
-                                        <rect key="frame" x="0.0" y="534" width="414" height="53"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Irw-kj-Voo" id="tkG-wb-p1h">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yU-ph-7L5">
-                                                    <rect key="frame" x="20" y="5" width="374" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R3-Captain Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW6-1e-szv">
-                                                    <rect key="frame" x="20" y="27" width="374" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="PW6-1e-szv" firstAttribute="trailing" secondItem="0yU-ph-7L5" secondAttribute="trailing" id="Qh5-pS-Ouj"/>
-                                                <constraint firstAttribute="trailing" secondItem="0yU-ph-7L5" secondAttribute="trailing" constant="20" id="dVI-GB-gCq"/>
-                                                <constraint firstItem="PW6-1e-szv" firstAttribute="top" secondItem="0yU-ph-7L5" secondAttribute="bottom" constant="4" id="p9Z-Ng-6y1"/>
-                                                <constraint firstItem="0yU-ph-7L5" firstAttribute="leading" secondItem="tkG-wb-p1h" secondAttribute="leading" constant="20" id="qTV-9G-g5H"/>
-                                                <constraint firstItem="0yU-ph-7L5" firstAttribute="top" secondItem="tkG-wb-p1h" secondAttribute="top" constant="5" id="sCb-C1-L8y"/>
-                                                <constraint firstItem="PW6-1e-szv" firstAttribute="leading" secondItem="0yU-ph-7L5" secondAttribute="leading" id="scE-pg-2Fo"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="xoe-o1-fgh">
-                                        <rect key="frame" x="0.0" y="587" width="414" height="53"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xoe-o1-fgh" id="ryc-v7-Djq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzA-YA-Lqu">
-                                                    <rect key="frame" x="20" y="5" width="374" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R3-Captain Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HL4-FJ-HhK">
-                                                    <rect key="frame" x="20" y="27" width="374" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="NzA-YA-Lqu" firstAttribute="leading" secondItem="ryc-v7-Djq" secondAttribute="leading" constant="20" id="CZs-lF-SBe"/>
-                                                <constraint firstItem="NzA-YA-Lqu" firstAttribute="top" secondItem="ryc-v7-Djq" secondAttribute="top" constant="5" id="EA8-f6-06a"/>
-                                                <constraint firstAttribute="trailing" secondItem="NzA-YA-Lqu" secondAttribute="trailing" constant="20" id="Om4-Vn-pMQ"/>
-                                                <constraint firstItem="HL4-FJ-HhK" firstAttribute="leading" secondItem="NzA-YA-Lqu" secondAttribute="leading" id="XBs-rA-JnU"/>
-                                                <constraint firstItem="HL4-FJ-HhK" firstAttribute="trailing" secondItem="NzA-YA-Lqu" secondAttribute="trailing" id="tNZ-rs-DZ2"/>
-                                                <constraint firstItem="HL4-FJ-HhK" firstAttribute="top" secondItem="NzA-YA-Lqu" secondAttribute="bottom" constant="4" id="xZ7-Uh-Mmb"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -424,6 +342,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="5er-rU-32X"/>
                     <connections>
+                        <outlet property="detailTableView" destination="Rzs-cv-MFe" id="Tij-xQ-LL4"/>
                         <outlet property="eyeColorLabel" destination="P2F-NK-hGZ" id="S0n-rp-QtP"/>
                         <outlet property="genderLabel" destination="mhB-T0-z4U" id="6oe-Ep-2N0"/>
                         <outlet property="hairColorLabel" destination="x1X-uc-99f" id="dEb-dh-o5C"/>
@@ -435,7 +354,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdH-l9-1UZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="130"/>
+            <point key="canvasLocation" x="1995.6521739130437" y="129.91071428571428"/>
         </scene>
     </scenes>
 </document>

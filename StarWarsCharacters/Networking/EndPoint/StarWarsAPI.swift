@@ -10,6 +10,7 @@ import Foundation
 
 public enum StarWarsAPI {
     case allpersons(page: Int)
+    case film(id: Int)
 }
 
 extension StarWarsAPI: EndPointType {
@@ -31,6 +32,8 @@ extension StarWarsAPI: EndPointType {
         switch self {
         case .allpersons:
             return "people/"
+        case .film(let id):
+            return "films/\(id)"
         }
     }
     
@@ -42,12 +45,16 @@ extension StarWarsAPI: EndPointType {
         switch self {
         case .allpersons(let page):
             return ["page": page]
+        case .film:
+            return nil
         }
     }
     
     var task: HTTPTask {
         switch self {
         case .allpersons:
+            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters)
+        case .film:
             return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: parameters)
         }
         

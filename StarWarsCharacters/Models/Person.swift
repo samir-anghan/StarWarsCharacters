@@ -16,6 +16,8 @@ struct Person {
     let films, species, vehicles, starships: [String]
     let created, edited: String
     let url: String
+    
+    
 }
 
 extension Person: Decodable {

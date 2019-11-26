@@ -1,5 +1,5 @@
 //
-//  PeopleTableViewCell.swift
+//  PersonTableViewCell.swift
 //  StarWarsCharacters
 //
 //  Created by Samir on 11/23/19.
@@ -10,15 +10,16 @@ import UIKit
 
 class PersonTableViewCell: UITableViewCell {
     static let identifier = "personCellIdentifier"
-
+    
     @IBOutlet weak var personNameLabel: UILabel!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     override func prepareForReuse() {
-      super.prepareForReuse()
-      
-      configure(with: .none)
+        super.prepareForReuse()
+        
+        configure(with: .none)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,13 +27,15 @@ class PersonTableViewCell: UITableViewCell {
     }
     
     func configure(with person: Person?) {
-      if let person = person {
-        personNameLabel.alpha = 1
-        personNameLabel.text = person.name
-        indicatorView.stopAnimating()
-      } else {
-        personNameLabel.alpha = 0
-        indicatorView.startAnimating()
-      }
+        if let person = person {
+            self.isUserInteractionEnabled = true
+            personNameLabel.alpha = 1
+            personNameLabel.text = person.name
+            indicatorView.stopAnimating()
+        } else {
+            self.isUserInteractionEnabled = false
+            personNameLabel.alpha = 0
+            indicatorView.startAnimating()
+        }
     }
 }
