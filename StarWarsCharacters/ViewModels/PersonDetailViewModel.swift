@@ -10,6 +10,7 @@ import Foundation
 
 protocol PersonDetailViewModelDelegate: class {
     func onFetchCompleted()
+    func onFetchFailed(with reason: String)
 }
 
 class PersonDetailViewModel {
@@ -44,8 +45,11 @@ class PersonDetailViewModel {
             self.isFetchInProcess = true
             NetworkManager.shared.getFilm(id: filmId) { response, error in
                 if let error = error {
-                    print("Error fetching film data: \(error)")
-                    return
+                    DispatchQueue.main.async {
+                        self.delegate?.onFetchFailed(with: error)
+                        print("Error fetching film data: \(error)")
+                        return
+                    }
                 }
                 if let response = response {
                     DispatchQueue.main.async {

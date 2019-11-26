@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonDetailTableViewController: UITableViewController {
+class PersonDetailTableViewController: UITableViewController, AlertDisplayer {
     
     @IBOutlet var detailTableView: UITableView!
     @IBOutlet weak var yearOfBirthLabel: UILabel!
@@ -86,5 +86,11 @@ class PersonDetailTableViewController: UITableViewController {
 extension PersonDetailTableViewController: PersonDetailViewModelDelegate {
     func onFetchCompleted() {
         detailTableView.reloadData()
+    }
+    
+    func onFetchFailed(with reason: String) {
+        let title = "Warning"
+        let action = UIAlertAction(title: "OK", style: .default)
+        displayAlert(with: title , message: reason, actions: [action])
     }
 }
