@@ -8,6 +8,7 @@ This is a simple iOS Application project listing the Star Wars Characters with d
 - Focus on code quality, architecture and efficiency (No any third party code)
 ## Future Goals
 - Add unit tests
+- Local storage using Core data or Realm framework
 ##  Features
 - Show a list of all star wars characters (infinite scrolling)
 - Tapping on the name of a person in the list, shows detail view with Name, Year of Birth, Gender, Physical attributes
