@@ -32,5 +32,4 @@ extension StarWarsApiResponse: Decodable {
         previousPageURL = try container.decodeIfPresent(String.self, forKey: .previousPageURL)
         persons = try container.decode([Person].self, forKey: .persons)
     }
-    
 }

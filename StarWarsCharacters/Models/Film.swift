@@ -25,5 +25,4 @@ extension Film: Decodable {
         title = try container.decode(String.self, forKey: .title)
         openingCrawl = try container.decode(String.self, forKey: .openingCrawl)
     }
-    
 }
